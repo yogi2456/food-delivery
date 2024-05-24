@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import './Add.css';
 import { assets } from '../../assets/assets';
 import axios from "axios";
+import { toast } from 'react-toastify';
 
-const Add = () => {
+const Add = ({url}) => {
 
-  const url = "http://localhost:4000";
+  // const url = "http://localhost:4000";
 
   const [image, setImage] = useState(false);
   const [data, setData] = useState({
@@ -38,11 +39,11 @@ const Add = () => {
           category:"Salad"
         })
         setImage(false)
+        toast.success(response.data.message)
     } else {
-
+          toast.error(response.data.message)
     }
-  }
-
+  };
 
   return (
     <div className='add'>
@@ -65,7 +66,7 @@ const Add = () => {
         <div className="add-category-price">
           <div className="add-category flex-col">
             <p>Product category</p>
-            <select name="category">
+            <select onChange={onChangeHandler} name="category">
               <option value="Salad">Salad</option>
               <option value="Rolls">Rolls</option>
               <option value="Deserts">Deserts</option>
