@@ -76,4 +76,4 @@ const navigate = useNavigate();
   )
 }
 
-export default Cart
+export default Cart;
