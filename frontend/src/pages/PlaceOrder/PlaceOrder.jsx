@@ -55,7 +55,7 @@ const placeOrder = async (event) => {
 //   console.log(data);
 // }, [data])
   return (
-    <form onSubmit={placeOrder} className='place-order'>
+    <form onSubmit={placeOrder} className='place-order' onClick={window.scrollTo(0,0)}>
       <div className="place-order-left">
         <p className="title">Delivery Information</p>
         <div className="multi-fields">
